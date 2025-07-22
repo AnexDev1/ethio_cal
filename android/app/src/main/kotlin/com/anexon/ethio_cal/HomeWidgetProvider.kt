@@ -10,11 +10,14 @@ class HomeWidgetProvider : AppWidgetProvider() {
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         // HomeWidget saves data in SharedPreferences named "HomeWidgetPreferences"
         val prefs: SharedPreferences = context.getSharedPreferences("HomeWidgetPreferences", Context.MODE_PRIVATE)
-        val date = prefs.getString("ethiopian_date", "...")
-        val day = prefs.getString("ethiopian_day", "...")
+        val date = prefs.getString("ethiopian_date", "...") ?: "..."
+        val day = prefs.getString("ethiopian_day", "...") ?: "..."
 
         for (appWidgetId in appWidgetIds) {
-            val views = RemoteViews(context.packageName, R.layout.home_widget)
+            val options = appWidgetManager.getAppWidgetOptions(appWidgetId)
+            val minWidth = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH)
+            val layoutId = if (minWidth < 180) R.layout.home_widget_compact else R.layout.home_widget
+            val views = RemoteViews(context.packageName, layoutId)
             views.setTextViewText(R.id.ethiopian_date, date)
             views.setTextViewText(R.id.ethiopian_day, day)
             appWidgetManager.updateAppWidget(appWidgetId, views)

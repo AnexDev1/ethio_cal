@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    
+    
+    <color name="ethiopian_green">#2E7D32</color>
+    <color name="ethiopian_green_dark">#1B5E20</color>
+    <color name="ethiopian_green_light">#4CAF50</color>
+    <color name="ethiopian_gold">#FFD54F</color>
+    <color name="ethiopian_gold_dark">#FFA000</color>
+    <color name="ethiopian_red">#D32F2F</color>
+
+  
+    <color name="background_light">#FAFAFA</color>
+    <color name="background_white">#FFFFFF</color>
+    <color name="background_surface">#F5F5F5</color>
+
+    <color name="text_primary">#1A1A1A</color>
+    <color name="text_secondary">#666666</color>
+    <color name="text_tertiary">#888888</color>
+  
+    <color name="widget_background">#FFFFFF</color>
+    <color name="widget_background_secondary">#F8F9FA</color>
+    <color name="widget_text_primary">#1A1A1A</color>
+    <color name="widget_text_secondary">#666666</color>
+    <color name="widget_text_tertiary">#888888</color>
+    <color name="widget_border">#E0E0E0</color>
+    
+  
+    <color name="accent_orange">#FF8F00</color>
+    <color name="accent_blue">#1976D2</color>
+   
+    <color name="success">#4CAF50</color>
+    <color name="warning">#FF9800</color>
+    <color name="error">#F44336</color>
+   
+    <color name="transparent">#00000000</color>
+    <color name="semi_transparent">#80000000</color>
+    
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_dark">#121212</color>
+    <color name="background_surface_dark">#1E1E1E</color>
+    <color name="background_card_dark">#2C2C2C</color>
+
+    <color name="text_primary_dark">#FFFFFF</color>
+    <color name="text_secondary_dark">#B3B3B3</color>
+    <color name="text_tertiary_dark">#808080</color>
+    
+    <color name="widget_background_dark">#2C2C2C</color>
+    <color name="widget_text_primary_dark">#FFFFFF</color>
+    <color name="widget_text_secondary_dark">#B3B3B3</color>
+    <color name="widget_border_dark">#404040</color>
+</resources>
