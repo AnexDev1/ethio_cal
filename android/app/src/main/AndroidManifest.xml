@@ -15,7 +15,7 @@
         android:label="Ethiopian Calendar"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/launcher_icon"
         android:theme="@style/AppTheme"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -52,7 +52,7 @@
 
         <!-- Enhanced HomeWidgetProvider with better configuration -->
         <receiver
-            android:name="com.anexon.ethio_cal.HomeWidgetProvider"
+            android:name="com.anexon.ethio_cal.MyHomeWidgetProvider"
             android:exported="true"
             android:enabled="true"
             android:label="Ethiopian Calendar Widget">

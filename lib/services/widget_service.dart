@@ -9,7 +9,7 @@ class WidgetService {
     await HomeWidget.saveWidgetData<String>('ethiopian_day', ethio['day']!);
 
     await HomeWidget.updateWidget(
-      qualifiedAndroidName: 'com.anexon.ethio_cal.HomeWidgetProvider',
+      qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetProvider',
     );
   }
 }

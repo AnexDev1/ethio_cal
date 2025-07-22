@@ -6,7 +6,7 @@ import android.content.Context
 import android.widget.RemoteViews
 import android.content.SharedPreferences
 
-class HomeWidgetProvider : AppWidgetProvider() {
+class MyHomeWidgetProvider : AppWidgetProvider() {
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         // HomeWidget saves data in SharedPreferences named "HomeWidgetPreferences"
         val prefs: SharedPreferences = context.getSharedPreferences("HomeWidgetPreferences", Context.MODE_PRIVATE)

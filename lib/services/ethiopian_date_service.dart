@@ -6,7 +6,7 @@ class EthiopianDateService {
   static Map<String, String> getEthiopianDateInfo(DateTime dateTime) {
     final ethioDate = EthiopianDateConverter.convertToEthiopianDate(dateTime);
     final formattedDate = EthiopianDateFormatter(
-      'yyyy MMMM dd',
+      'dd-MM-yyyy',
       'am',
     ).format(ethioDate);
     final dayNames = ['እሑድ', 'ሰኞ', 'ማክሰኞ', 'ረቡዕ', 'ሐሙስ', 'ዓርብ', 'ቅዳሜ'];
