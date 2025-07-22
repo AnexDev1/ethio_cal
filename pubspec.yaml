@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   home_widget: ^0.8.0
   ethiopian_calendar: ^0.0.2
+  flutter_launcher_icons: ^0.14.4
 
 dev_dependencies:
   flutter_test:
@@ -60,8 +61,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/icon/icon.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
