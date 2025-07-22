@@ -2,7 +2,6 @@ import 'package:home_widget/home_widget.dart';
 import 'ethiopian_date_service.dart';
 
 class WidgetService {
-  /// Updates the home widget with the current Ethiopian date and day name in Amharic.
   static Future<void> updateHomeWidget() async {
     final now = DateTime.now();
     final ethio = EthiopianDateService.getEthiopianDateInfo(now);

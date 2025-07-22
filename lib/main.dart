@@ -122,7 +122,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             flexibleSpace: FlexibleSpaceBar(
               centerTitle: true,
               title: Text(
-                'ኢትዮጵያዊ ዘመን',
+                'Ethio Calendar',
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
                   fontWeight: FontWeight.w600,
@@ -263,14 +263,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget _buildInfoCards() {
     return Row(
       children: [
-        Expanded(
-          child: _buildSmallInfoCard(
-            icon: Icons.wb_sunny_outlined,
-            title: 'Season',
-            value: 'Dry Season',
-            color: Colors.orange,
-          ),
-        ),
         const SizedBox(width: 16),
         Expanded(
           child: _buildSmallInfoCard(
