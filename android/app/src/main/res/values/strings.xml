@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_description">Ethiopian Calendar Home Widget</string>
+    <string name="widget_description_dark">Ethiopian Calendar Home Widget (Dark Mode)</string>
+    <string name="widget_description_day">Ethiopian Calendar Day Widget</string>
+    <string name="widget_description_day_dark">Ethiopian Calendar Day Widget (Dark Mode)</string>
 </resources>

@@ -37,6 +37,7 @@ dependencies:
   home_widget: ^0.8.0
   ethiopian_calendar: ^0.0.2
   flutter_launcher_icons: ^0.14.4
+  android_alarm_manager_plus: ^4.0.7
 
 dev_dependencies:
   flutter_test:

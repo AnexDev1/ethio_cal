@@ -6,15 +6,12 @@ import android.content.Context
 import android.widget.RemoteViews
 import android.content.SharedPreferences
 
-class MyHomeWidgetProvider : AppWidgetProvider() {
+class MyHomeWidgetDayDarkProvider : AppWidgetProvider() {
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         val prefs: SharedPreferences = context.getSharedPreferences("HomeWidgetPreferences", Context.MODE_PRIVATE)
-        val date = prefs.getString("ethiopian_date", "...") ?: "..."
         val day = prefs.getString("ethiopian_day", "...") ?: "..."
-
         for (appWidgetId in appWidgetIds) {
-            val views = RemoteViews(context.packageName, R.layout.home_widget)
-            views.setTextViewText(R.id.ethiopian_date, date)
+            val views = RemoteViews(context.packageName, R.layout.home_widget_day_dark)
             views.setTextViewText(R.id.ethiopian_day, day)
             appWidgetManager.updateAppWidget(appWidgetId, views)
         }

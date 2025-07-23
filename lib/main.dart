@@ -1,12 +1,31 @@
 import 'package:ethio_cal/services/ethiopian_date_service.dart';
 import 'package:flutter/material.dart';
 import 'package:home_widget/home_widget.dart';
+import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
 import 'services/widget_service.dart';
+
+@pragma('vm:entry-point')
+Future<void> updateWidgetBackground() async {
+  await WidgetService.updateHomeWidget();
+}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await AndroidAlarmManager.initialize();
   await WidgetService.updateHomeWidget();
-  HomeWidget.registerBackgroundCallback(backgroundCallback);
+  HomeWidget.registerInteractivityCallback(backgroundCallback);
+
+  // Schedule the daily update at 00:01 every day
+  await AndroidAlarmManager.periodic(
+    const Duration(hours: 24),
+    0, // alarm id
+    updateWidgetBackground,
+    startAt: DateTime.now().add(const Duration(minutes: 1)),
+    exact: true,
+    wakeup: true,
+    rescheduleOnReboot: true,
+  );
+
   runApp(const MyApp());
 }
 

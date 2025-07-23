@@ -21,7 +21,40 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         tools:targetApi="31">
-        
+        <service
+    android:name="dev.fluttercommunity.plus.androidalarmmanager.AlarmService"
+    android:permission="android.permission.BIND_JOB_SERVICE"
+    android:exported="false"/>
+<receiver
+    android:name="dev.fluttercommunity.plus.androidalarmmanager.AlarmBroadcastReceiver"
+    android:exported="false"/>
+<receiver
+    android:name="dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver"
+    android:enabled="false"
+    android:exported="false">
+    <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED" />
+    </intent-filter>
+</receiver>
+
+        <!-- Day Dark Widget Provider -->
+        <receiver
+            android:name="com.anexon.ethio_cal.MyHomeWidgetDayDarkProvider"
+            android:exported="true"
+            android:enabled="true"
+            android:label="Ethiopian Calendar Day Dark Widget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/home_widget_day_dark_info"/>
+        </receiver>
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -70,6 +103,27 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/home_widget_info"/>
         </receiver>
+
+        <!-- Day Widget Provider -->
+        <receiver
+            android:name="com.anexon.ethio_cal.MyHomeWidgetDayProvider"
+            android:exported="true"
+            android:enabled="true"
+            android:label="Ethiopian Calendar Day Widget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/home_widget_day_info"/>
+        </receiver>
+
+
         
         <!-- Widget configuration activity (optional but recommended) -->
         <activity
@@ -96,9 +150,26 @@
         <meta-data
             android:name="app_name"
             android:value="Ethiopian Calendar" />
-            
-    </application>
 
+        <!-- Home Widget Dark Provider (moved inside application) -->
+        <receiver
+            android:name="com.anexon.ethio_cal.MyHomeWidgetDarkProvider"
+            android:exported="true"
+            android:enabled="true"
+            android:label="Ethiopian Calendar Widget (Dark)">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/home_widget_dark_info"/>
+        </receiver>
+    </application>
     <!-- Enhanced queries for better compatibility -->
     <queries>
         <intent>
