@@ -7,6 +7,18 @@ import 'services/widget_service.dart';
 @pragma('vm:entry-point')
 Future<void> updateWidgetBackground() async {
   await WidgetService.updateHomeWidget();
+  await HomeWidget.updateWidget(
+    qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetProvider',
+  );
+  await HomeWidget.updateWidget(
+    qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetDayProvider',
+  );
+  await HomeWidget.updateWidget(
+    qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetDayDarkProvider',
+  );
+  await HomeWidget.updateWidget(
+    qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetDarkProvider',
+  );
 }
 
 void main() async {
@@ -15,12 +27,12 @@ void main() async {
   await WidgetService.updateHomeWidget();
   HomeWidget.registerInteractivityCallback(backgroundCallback);
 
-  // Schedule the daily update at 00:01 every day
+  // Schedule the widget update every hour
   await AndroidAlarmManager.periodic(
-    const Duration(hours: 24),
+    const Duration(hours: 1),
     0, // alarm id
     updateWidgetBackground,
-    startAt: DateTime.now().add(const Duration(minutes: 1)),
+    startAt: DateTime.now().add(const Duration(seconds: 5)),
     exact: true,
     wakeup: true,
     rescheduleOnReboot: true,
@@ -31,6 +43,18 @@ void main() async {
 
 Future<void> backgroundCallback(Uri? uri) async {
   await WidgetService.updateHomeWidget();
+  await HomeWidget.updateWidget(
+    qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetProvider',
+  );
+  await HomeWidget.updateWidget(
+    qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetDayProvider',
+  );
+  await HomeWidget.updateWidget(
+    qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetDayDarkProvider',
+  );
+  await HomeWidget.updateWidget(
+    qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetDarkProvider',
+  );
 }
 
 class MyApp extends StatelessWidget {

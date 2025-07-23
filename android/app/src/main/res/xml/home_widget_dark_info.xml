@@ -9,5 +9,5 @@
     android:initialLayout="@layout/home_widget_dark"
     android:resizeMode="horizontal|vertical"
     android:widgetCategory="home_screen"
-    android:previewImage="@drawable/widget_preview"
+    android:previewImage="@drawable/home_widget_preview_dark"
     android:description="@string/widget_description_dark" />
