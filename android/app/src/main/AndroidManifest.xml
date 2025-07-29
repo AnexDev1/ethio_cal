@@ -21,6 +21,51 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         tools:targetApi="31">
+        <receiver
+            android:name="com.anexon.ethio_cal.MyHomeWidgetGlassyDarkProvider"
+            android:exported="true"
+            android:enabled="true"
+            android:label="@string/widget_label_glassy_dark">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/home_widget_glassy_dark_info"/>
+        </receiver>
+
+        <!-- Glassy Dark Day Widget Provider -->
+        <receiver
+            android:name="com.anexon.ethio_cal.MyHomeWidgetDayGlassyDarkProvider"
+            android:exported="true"
+            android:enabled="true"
+            android:label="@string/widget_label_day_glassy_dark">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/home_widget_day_glassy_dark_info"/>
+        </receiver>
+        android:label="Ethiopian Calendar"
+        android:name="${applicationName}"
+        android:icon="@mipmap/launcher_icon"
+        android:roundIcon="@mipmap/launcher_icon"
+        android:theme="@style/AppTheme"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        tools:targetApi="31">
         <service
     android:name="dev.fluttercommunity.plus.androidalarmmanager.AlarmService"
     android:permission="android.permission.BIND_JOB_SERVICE"
@@ -84,6 +129,43 @@
         </activity>
 
         <!-- Enhanced HomeWidgetProvider with better configuration -->
+        <!-- Glassy Home Widget Provider -->
+        <receiver
+            android:name="com.anexon.ethio_cal.MyHomeWidgetGlassyProvider"
+            android:exported="true"
+            android:enabled="true"
+            android:label="@string/widget_label_glassy">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/home_widget_glassy_info"/>
+        </receiver>
+
+        <!-- Glassy Day Widget Provider -->
+        <receiver
+            android:name="com.anexon.ethio_cal.MyHomeWidgetDayGlassyProvider"
+            android:exported="true"
+            android:enabled="true"
+            android:label="@string/widget_label_day_glassy">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/home_widget_day_glassy_info"/>
+        </receiver>
         <receiver
             android:name="com.anexon.ethio_cal.MyHomeWidgetProvider"
             android:exported="true"

@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="widget_description_glassy_dark">Glassy Ethiopian Calendar Widget (Dark)</string>
+    <string name="widget_description_day_glassy_dark">Glassy Ethiopian Calendar Day Widget (Dark)</string>
+    <string name="widget_label_glassy_dark">Ethiopian Calendar (Glassy Dark)</string>
+    <string name="widget_label_day_glassy_dark">Ethiopian Calendar Day (Glassy Dark)</string>
     <string name="widget_description">Ethiopian Calendar Home Widget</string>
     <string name="widget_description_dark">Ethiopian Calendar Home Widget (Dark Mode)</string>
     <string name="widget_description_day">Ethiopian Calendar Day Widget</string>
     <string name="widget_description_day_dark">Ethiopian Calendar Day Widget (Dark Mode)</string>
+    <string name="widget_description_glassy">Glassy Ethiopian Calendar Widget</string>
+    <string name="widget_description_day_glassy">Glassy Ethiopian Calendar Day Widget</string>
+    <string name="widget_label_glassy">Ethiopian Calendar (Glassy)</string>
+    <string name="widget_label_day_glassy">Ethiopian Calendar Day (Glassy)</string>
 </resources>

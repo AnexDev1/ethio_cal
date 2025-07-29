@@ -21,5 +21,20 @@ class WidgetService {
     await HomeWidget.updateWidget(
       qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetDarkProvider',
     );
+    await HomeWidget.updateWidget(
+      qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetGlassyProvider',
+    );
+    await HomeWidget.updateWidget(
+      qualifiedAndroidName:
+          'com.anexon.ethio_cal.MyHomeWidgetDayGlassyProvider',
+    );
+    await HomeWidget.updateWidget(
+      qualifiedAndroidName:
+          'com.anexon.ethio_cal.MyHomeWidgetGlassyDarkProvider',
+    );
+    await HomeWidget.updateWidget(
+      qualifiedAndroidName:
+          'com.anexon.ethio_cal.MyHomeWidgetDayGlassyDarkProvider',
+    );
   }
 }

@@ -19,6 +19,19 @@ Future<void> updateWidgetBackground() async {
   await HomeWidget.updateWidget(
     qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetDarkProvider',
   );
+  await HomeWidget.updateWidget(
+    qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetGlassyProvider',
+  );
+  await HomeWidget.updateWidget(
+    qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetDayGlassyProvider',
+  );
+  await HomeWidget.updateWidget(
+    qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetGlassyDarkProvider',
+  );
+  await HomeWidget.updateWidget(
+    qualifiedAndroidName:
+        'com.anexon.ethio_cal.MyHomeWidgetDayGlassyDarkProvider',
+  );
 }
 
 void main() async {
@@ -54,6 +67,19 @@ Future<void> backgroundCallback(Uri? uri) async {
   );
   await HomeWidget.updateWidget(
     qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetDarkProvider',
+  );
+  await HomeWidget.updateWidget(
+    qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetGlassyProvider',
+  );
+  await HomeWidget.updateWidget(
+    qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetDayGlassyProvider',
+  );
+  await HomeWidget.updateWidget(
+    qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetGlassyDarkProvider',
+  );
+  await HomeWidget.updateWidget(
+    qualifiedAndroidName:
+        'com.anexon.ethio_cal.MyHomeWidgetDayGlassyDarkProvider',
   );
 }
 
