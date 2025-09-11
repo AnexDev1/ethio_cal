@@ -1,17 +1,32 @@
-import 'package:ethiopian_calendar/ethiopian_date_converter.dart';
-import 'package:ethiopian_calendar/ethiopian_date_formatter.dart';
+import 'package:ethiopian_datetime/ethiopian_datetime.dart';
 
 class EthiopianDateService {
-  /// Returns a formatted Ethiopian date and day name in Amharic for the given [dateTime].
-  static Map<String, String> getEthiopianDateInfo(DateTime dateTime) {
-    final ethioDate = EthiopianDateConverter.convertToEthiopianDate(dateTime);
-    // Format as 'MMMM dd yyyy' (month day year, space separated)
-    final formattedDate = EthiopianDateFormatter(
-      'MMMM dd yyyy',
-      'am',
-    ).format(ethioDate);
-    final dayNames = ['እሑድ', 'ሰኞ', 'ማክሰኞ', 'ረቡዕ', 'ሐሙስ', 'ዓርብ', 'ቅዳሜ'];
-    final dayName = dayNames[dateTime.weekday % 7];
-    return {'date': formattedDate, 'day': dayName};
+  static const Map<String, String> dayMaps = {
+    'ሶኒ': 'ሰኞ',
+    'ሰሉስ': 'ማክሰኞ',
+    'ረቡዕ': 'ረቡዕ',
+    'ሓሙስ': 'ሐሙስ',
+    'ዓርቢ': 'ዓርብ',
+    'ቀዳም': 'ቅዳሜ',
+    'ሰንበት': 'እሑድ',
+  };
+
+  static String getFormattedDate() {
+    ETDateTime now = ETDateTime.now();
+
+    final dateTime = ETDateFormat("dd-MMMM-yyyy HH:mm:ss").format(now);
+    final tempDate = dateTime.split(" ")[0].split("-");
+
+    // print("Temp Date: $tempDate");
+    final actualDate = "${tempDate[1]} ${tempDate[0]} ${tempDate[2]}";
+
+    return actualDate;
+  }
+
+  static String getDayOnly() {
+    ETDateTime now = ETDateTime.now();
+    final formattedDate = ETDateFormat.MMMMEEEEd('ti').format(now);
+    final unmapped = formattedDate.split(",")[0];
+    return dayMaps[unmapped] ?? unmapped;
   }
 }
