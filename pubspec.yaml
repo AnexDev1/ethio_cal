@@ -38,6 +38,7 @@ dependencies:
   ethiopian_calendar: ^0.0.2
   flutter_launcher_icons: ^0.14.4
   android_alarm_manager_plus: ^4.0.7
+  ethiopian_datetime: ^1.0.3
 
 dev_dependencies:
   flutter_test:
