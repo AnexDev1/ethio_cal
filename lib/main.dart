@@ -1,4 +1,5 @@
 import 'package:ethio_cal/services/ethiopian_date_service.dart';
+import 'package:ethiopian_datetime/ethiopian_datetime.dart';
 import 'package:flutter/material.dart';
 import 'package:home_widget/home_widget.dart';
 import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
@@ -159,11 +160,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   }
 
   Future<void> _loadDate() async {
-    final now = DateTime.now();
-    final ethio = EthiopianDateService.getEthiopianDateInfo(now);
+    final date = EthiopianDateService.getFormattedDate();
+    final day = EthiopianDateService.getDayOnly();
     setState(() {
-      _ethiopianDate = ethio['date'] ?? '';
-      _ethiopianDay = ethio['day'] ?? '';
+      _ethiopianDate = date;
+      _ethiopianDay = day;
     });
     _animationController.forward();
   }
@@ -337,7 +338,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           child: _buildSmallInfoCard(
             icon: Icons.star_outline,
             title: 'Year',
-            value: '2017 E.C.',
+            value: ETDateTime.now().year.toString(),
             color: Colors.blue,
           ),
         ),
