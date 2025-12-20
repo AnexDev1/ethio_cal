@@ -1,16 +1,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    
     <!-- Existing permissions -->
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    
+    <uses-permission
+        android:name="android.permission.INTERNET"/>
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission
+        android:name="android.permission.VIBRATE"/>
+    <uses-permission
+        android:name="android.permission.WAKE_LOCK"/>
     <!-- Enhanced permissions for better widget functionality -->
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-    
+    <uses-permission
+        android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission
+        android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
     <application
         android:label="Ethiopian Calendar"
         android:name="${applicationName}"
@@ -27,18 +30,23 @@
             android:enabled="true"
             android:label="@string/widget_label_glassy_dark">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
-                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.TIME_SET"/>
-                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
-                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action
+                    android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action
+                    android:name="android.intent.action.TIME_SET"/>
+                <action
+                    android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action
+                    android:name="android.intent.action.DATE_CHANGED"/>
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/home_widget_glassy_dark_info"/>
         </receiver>
-
         <!-- Glassy Dark Day Widget Provider -->
         <receiver
             android:name="com.anexon.ethio_cal.MyHomeWidgetDayGlassyDarkProvider"
@@ -46,42 +54,40 @@
             android:enabled="true"
             android:label="@string/widget_label_day_glassy_dark">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
-                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.TIME_SET"/>
-                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
-                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action
+                    android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action
+                    android:name="android.intent.action.TIME_SET"/>
+                <action
+                    android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action
+                    android:name="android.intent.action.DATE_CHANGED"/>
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/home_widget_day_glassy_dark_info"/>
         </receiver>
-        android:label="Ethiopian Calendar"
-        android:name="${applicationName}"
-        android:icon="@mipmap/launcher_icon"
-        android:roundIcon="@mipmap/launcher_icon"
-        android:theme="@style/AppTheme"
-        android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
-        tools:targetApi="31">
+        android:label="Ethiopian Calendar" android:name="${applicationName}" android:icon="@mipmap/launcher_icon" android:roundIcon="@mipmap/launcher_icon" android:theme="@style/AppTheme" android:allowBackup="true" android:dataExtractionRules="@xml/data_extraction_rules" android:fullBackupContent="@xml/backup_rules" tools:targetApi="31">
         <service
-    android:name="dev.fluttercommunity.plus.androidalarmmanager.AlarmService"
-    android:permission="android.permission.BIND_JOB_SERVICE"
-    android:exported="false"/>
-<receiver
-    android:name="dev.fluttercommunity.plus.androidalarmmanager.AlarmBroadcastReceiver"
-    android:exported="false"/>
-<receiver
-    android:name="dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver"
-    android:enabled="false"
-    android:exported="false">
-    <intent-filter>
-        <action android:name="android.intent.action.BOOT_COMPLETED" />
-    </intent-filter>
-</receiver>
-
+            android:name="dev.fluttercommunity.plus.androidalarmmanager.AlarmService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="false"/>
+        <receiver
+            android:name="dev.fluttercommunity.plus.androidalarmmanager.AlarmBroadcastReceiver"
+            android:exported="false"/>
+        <receiver
+            android:name="dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver"
+            android:enabled="false"
+            android:exported="false">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
         <!-- Day Dark Widget Provider -->
         <receiver
             android:name="com.anexon.ethio_cal.MyHomeWidgetDayDarkProvider"
@@ -89,12 +95,18 @@
             android:enabled="true"
             android:label="Ethiopian Calendar Day Dark Widget">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
-                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.TIME_SET"/>
-                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
-                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action
+                    android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action
+                    android:name="android.intent.action.TIME_SET"/>
+                <action
+                    android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action
+                    android:name="android.intent.action.DATE_CHANGED"/>
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
@@ -108,26 +120,21 @@
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
-            android:windowSoftInputMode="adjustResize"
-            android:screenOrientation="portrait">
-            
+            android:windowSoftInputMode="adjustResize">
             <!-- Enhanced theme metadata -->
             <meta-data
                 android:name="io.flutter.embedding.android.NormalTheme"
-                android:resource="@style/NormalTheme" />
-                
+                android:resource="@style/NormalTheme"/>
             <!-- Splash screen -->
             <meta-data
                 android:name="io.flutter.embedding.android.SplashScreenDrawable"
-                android:resource="@drawable/launch_background" />
-                
-            <intent-filter android:autoVerify="true">
+                android:resource="@drawable/launch_background"/>
+            <intent-filter
+                android:autoVerify="true">
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-            
         </activity>
-
         <!-- Enhanced HomeWidgetProvider with better configuration -->
         <!-- Glassy Home Widget Provider -->
         <receiver
@@ -136,18 +143,23 @@
             android:enabled="true"
             android:label="@string/widget_label_glassy">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
-                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.TIME_SET"/>
-                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
-                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action
+                    android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action
+                    android:name="android.intent.action.TIME_SET"/>
+                <action
+                    android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action
+                    android:name="android.intent.action.DATE_CHANGED"/>
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/home_widget_glassy_info"/>
         </receiver>
-
         <!-- Glassy Day Widget Provider -->
         <receiver
             android:name="com.anexon.ethio_cal.MyHomeWidgetDayGlassyProvider"
@@ -155,12 +167,18 @@
             android:enabled="true"
             android:label="@string/widget_label_day_glassy">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
-                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.TIME_SET"/>
-                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
-                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action
+                    android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action
+                    android:name="android.intent.action.TIME_SET"/>
+                <action
+                    android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action
+                    android:name="android.intent.action.DATE_CHANGED"/>
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
@@ -171,21 +189,24 @@
             android:exported="true"
             android:enabled="true"
             android:label="Ethiopian Calendar Widget">
-            
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
-                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.TIME_SET"/>
-                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
-                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action
+                    android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action
+                    android:name="android.intent.action.TIME_SET"/>
+                <action
+                    android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action
+                    android:name="android.intent.action.DATE_CHANGED"/>
             </intent-filter>
-            
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/home_widget_info"/>
         </receiver>
-
         <!-- Day Widget Provider -->
         <receiver
             android:name="com.anexon.ethio_cal.MyHomeWidgetDayProvider"
@@ -193,46 +214,46 @@
             android:enabled="true"
             android:label="Ethiopian Calendar Day Widget">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
-                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.TIME_SET"/>
-                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
-                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action
+                    android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action
+                    android:name="android.intent.action.TIME_SET"/>
+                <action
+                    android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action
+                    android:name="android.intent.action.DATE_CHANGED"/>
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/home_widget_day_info"/>
         </receiver>
-
-
-        
         <!-- Widget configuration activity (optional but recommended) -->
         <activity
             android:name="com.anexon.ethio_cal.WidgetConfigurationActivity"
             android:exported="false"
             android:theme="@style/Theme.Transparent">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
             </intent-filter>
         </activity>
-        
         <!-- Service for background updates -->
         <service
             android:name="com.anexon.ethio_cal.WidgetUpdateService"
             android:enabled="true"
-            android:exported="false" />
-
+            android:exported="false"/>
         <!-- Flutter embedding metadata -->
         <meta-data
             android:name="flutterEmbedding"
-            android:value="2" />
-            
+            android:value="2"/>
         <!-- App name for better branding -->
         <meta-data
             android:name="app_name"
-            android:value="Ethiopian Calendar" />
-
+            android:value="Ethiopian Calendar"/>
         <!-- Home Widget Dark Provider (moved inside application) -->
         <receiver
             android:name="com.anexon.ethio_cal.MyHomeWidgetDarkProvider"
@@ -240,12 +261,18 @@
             android:enabled="true"
             android:label="Ethiopian Calendar Widget (Dark)">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
-                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.TIME_SET"/>
-                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
-                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action
+                    android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action
+                    android:name="android.intent.action.TIME_SET"/>
+                <action
+                    android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action
+                    android:name="android.intent.action.DATE_CHANGED"/>
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
@@ -255,13 +282,16 @@
     <!-- Enhanced queries for better compatibility -->
     <queries>
         <intent>
-            <action android:name="android.intent.action.PROCESS_TEXT"/>
-            <data android:mimeType="text/plain"/>
+            <action
+                android:name="android.intent.action.PROCESS_TEXT"/>
+            <data
+                android:mimeType="text/plain"/>
         </intent>
         <intent>
-            <action android:name="android.intent.action.VIEW"/>
-            <data android:scheme="https"/>
+            <action
+                android:name="android.intent.action.VIEW"/>
+            <data
+                android:scheme="https"/>
         </intent>
     </queries>
-
 </manifest>

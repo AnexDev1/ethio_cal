@@ -1,14 +1,20 @@
 import 'package:ethiopian_datetime/ethiopian_datetime.dart';
 
 class EthiopianDateService {
-  static const Map<String, String> dayMaps = {
-    'ሶኒ': 'ሰኞ',
-    'ሰሉስ': 'ማክሰኞ',
-    'ረቡዕ': 'ረቡዕ',
-    'ሓሙስ': 'ሐሙስ',
-    'ዓርቢ': 'ዓርብ',
-    'ቀዳም': 'ቅዳሜ',
-    'ሰንበት': 'እሑድ',
+  static const Map<int, String> monthMaps = {
+    1: 'መስከረም',
+    2: 'ጥቅምት',
+    3: 'ኅዳር',
+    4: 'ታህሳስ',
+    5: 'ጥር',
+    6: 'የካቲት',
+    7: 'መጋቢት',
+    8: 'ሚያዝያ',
+    9: 'ግንቦት',
+    10: 'ሰኔ',
+    11: 'ሐምሌ',
+    12: 'ነሀሴ',
+    13: 'ጳጉሜ',
   };
 
   static String getFormattedDate() {
@@ -28,7 +34,12 @@ class EthiopianDateService {
     return actualDate;
   }
 
-  static String getDayOnly() {
+  static int getDaysInMonth(int year, int month) {
+    if (month < 13) return 30;
+    return (year + 1) % 4 == 0 ? 6 : 5;
+  }
+
+  static String getFormattedDate() {
     ETDateTime now = ETDateTime.now();
     final formattedDate = ETDateFormat.MMMMEEEEd('ti').format(now);
     print("FORMATTED DATE: $formattedDate");
