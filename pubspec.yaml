@@ -37,8 +37,13 @@ dependencies:
   home_widget: ^0.8.0
   ethiopian_calendar: ^0.0.2
   flutter_launcher_icons: ^0.14.4
-  android_alarm_manager_plus: ^4.0.7
+  android_alarm_manager_plus: ^5.0.0
   ethiopian_datetime: ^1.0.3
+  go_router: ^17.0.1
+  intl: ^0.18.1
+  google_fonts: ^6.3.3
+  provider: ^6.1.5+1
+  shared_preferences: ^2.5.4
 
 dev_dependencies:
   flutter_test:
