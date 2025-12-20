@@ -5,6 +5,7 @@ class WidgetService {
   static Future<void> updateHomeWidget() async {
     final date = EthiopianDateService.getFormattedDate();
     final day = EthiopianDateService.getDayOnly();
+
     await HomeWidget.saveWidgetData<String>('ethiopian_date', date);
     await HomeWidget.saveWidgetData<String>('ethiopian_day', day);
 
