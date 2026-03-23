@@ -1,8 +1,8 @@
-import 'package:ethio_cal/services/background_callback.dart';
+import 'package:ethio_cal/my_widgets.dart';
 import 'package:ethio_cal/services/update_widget_background.dart';
 import 'package:ethio_cal/services/widget_service.dart';
 import 'package:flutter/material.dart';
-import 'package:home_widget/home_widget.dart';
+import 'package:flutter_android_widgets/flutter_android_widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:ethio_cal/providers/theme_provider.dart';
 import 'package:ethio_cal/utils/app_router.dart';
@@ -11,10 +11,12 @@ import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Schedule the widget update every hour
+  // Register all widget definitions so styles sync on hot restart / app resume
+  WidgetUpdater.initialize(widgets: allWidgets);
+  HomeWidgetData.autoUpdate = true;
+
   await AndroidAlarmManager.initialize();
   await WidgetService.updateHomeWidget();
-  HomeWidget.registerInteractivityCallback(backgroundCallback);
 
   await AndroidAlarmManager.periodic(
     const Duration(hours: 1),

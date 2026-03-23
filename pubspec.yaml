@@ -14,7 +14,7 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.8
-  home_widget: ^0.8.0
+  flutter_android_widgets: ^0.0.2
   ethiopian_calendar: ^0.0.2
   flutter_launcher_icons: ^0.14.4
   android_alarm_manager_plus: ^5.0.0
@@ -29,6 +29,14 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: ^2.4.0
+  flutter_lints: ^5.0.0
+
+# Override build ecosystem to newer versions compatible with Dart 3.9+
+dependency_overrides:
+  build: ^4.0.0
+  build_resolvers: ^2.5.0
+  build_runner_core: ^9.0.0
 
 flutter_native_splash:
   color: "#ffffff"
@@ -39,8 +47,6 @@ flutter_icons:
   android: true
   ios: true
   image_path: assets/icon/calendar.png
-
-  flutter_lints: ^5.0.0
 
 flutter:
   uses-material-design: true

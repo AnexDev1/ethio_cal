@@ -1,41 +1,21 @@
 import 'package:ethio_cal/services/ethiopian_date_service.dart';
-import 'package:home_widget/home_widget.dart';
+import 'package:flutter_android_widgets/flutter_android_widgets.dart';
 
 class WidgetService {
   static Future<void> updateHomeWidget() async {
     final date = EthiopianDateService.getFormattedDate();
     final day = EthiopianDateService.getDayOnly();
 
-    await HomeWidget.saveWidgetData<String>('ethiopian_date', date);
-    await HomeWidget.saveWidgetData<String>('ethiopian_day', day);
+    final ethioProgress = EthiopianDateService.getEthiopianProgressData();
+    final gregProgress = EthiopianDateService.getGregorianProgressData();
 
-    // Update all widget providers
-    await HomeWidget.updateWidget(
-      qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetProvider',
-    );
-    await HomeWidget.updateWidget(
-      qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetDayProvider',
-    );
-    await HomeWidget.updateWidget(
-      qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetDayDarkProvider',
-    );
-    await HomeWidget.updateWidget(
-      qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetDarkProvider',
-    );
-    await HomeWidget.updateWidget(
-      qualifiedAndroidName: 'com.anexon.ethio_cal.MyHomeWidgetGlassyProvider',
-    );
-    await HomeWidget.updateWidget(
-      qualifiedAndroidName:
-          'com.anexon.ethio_cal.MyHomeWidgetDayGlassyProvider',
-    );
-    await HomeWidget.updateWidget(
-      qualifiedAndroidName:
-          'com.anexon.ethio_cal.MyHomeWidgetGlassyDarkProvider',
-    );
-    await HomeWidget.updateWidget(
-      qualifiedAndroidName:
-          'com.anexon.ethio_cal.MyHomeWidgetDayGlassyDarkProvider',
-    );
+    await HomeWidgetData.saveAll({
+      'ethiopian_date': date,
+      'ethiopian_day': day,
+      ...ethioProgress,
+      ...gregProgress,
+    });
+
+    await WidgetUpdater.updateAll();
   }
 }

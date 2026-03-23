@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_0"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="#151515"
+    android:gravity="center_vertical">
+
+    <!-- Day -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+        <TextView android:id="@+id/text_day" android:layout_width="66dp" android:layout_height="wrap_content" android:textSize="12sp" android:textColor="#FFFFFF" android:typeface="monospace"/>
+        <TextView android:id="@+id/dots_day" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:textSize="12sp" android:maxLines="1" android:ellipsize="none" android:includeFontPadding="false" android:typeface="monospace" android:textStyle="bold"/>
+        <TextView android:id="@+id/text_day_percent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="12sp" android:textColor="#FFFFFF" android:layout_marginStart="4dp" android:typeface="monospace"/>
+    </LinearLayout>
+
+    <TextView android:layout_width="match_parent" android:layout_height="4dp" android:text="" />
+
+    <!-- Week -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+        <TextView android:id="@+id/text_week" android:layout_width="66dp" android:layout_height="wrap_content" android:textSize="12sp" android:textColor="#FFFFFF" android:typeface="monospace"/>
+        <TextView android:id="@+id/dots_week" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:textSize="12sp" android:maxLines="1" android:ellipsize="none" android:includeFontPadding="false" android:typeface="monospace" android:textStyle="bold"/>
+        <TextView android:id="@+id/text_week_percent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="12sp" android:textColor="#FFFFFF" android:layout_marginStart="4dp" android:typeface="monospace"/>
+    </LinearLayout>
+
+    <TextView android:layout_width="match_parent" android:layout_height="4dp" android:text="" />
+
+    <!-- Month -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+        <TextView android:id="@+id/text_month" android:layout_width="66dp" android:layout_height="wrap_content" android:textSize="12sp" android:textColor="#FFFFFF" android:typeface="monospace"/>
+        <TextView android:id="@+id/dots_month" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:textSize="12sp" android:maxLines="1" android:ellipsize="none" android:includeFontPadding="false" android:typeface="monospace" android:textStyle="bold"/>
+        <TextView android:id="@+id/text_month_percent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="12sp" android:textColor="#FFFFFF" android:layout_marginStart="4dp" android:typeface="monospace"/>
+    </LinearLayout>
+
+    <TextView android:layout_width="match_parent" android:layout_height="4dp" android:text="" />
+
+    <!-- Year -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+        <TextView android:id="@+id/text_year" android:layout_width="66dp" android:layout_height="wrap_content" android:textSize="12sp" android:textColor="#FFFFFF" android:typeface="monospace"/>
+        <TextView android:id="@+id/dots_year" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:textSize="12sp" android:maxLines="1" android:ellipsize="none" android:includeFontPadding="false" android:typeface="monospace" android:textStyle="bold"/>
+        <TextView android:id="@+id/text_year_percent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="12sp" android:textColor="#FFFFFF" android:layout_marginStart="4dp" android:typeface="monospace"/>
+    </LinearLayout>
+</LinearLayout>
