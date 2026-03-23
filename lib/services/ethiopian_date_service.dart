@@ -92,10 +92,13 @@ class EthiopianDateService {
 
   static Map<String, String> getEthiopianProgressData() {
     final now = ETDateTime.now();
-    final hour = DateTime.now().hour;
-    final minute = DateTime.now().minute;
-    final second = DateTime.now().second;
+    final local = DateTime.now();
+    final shifted = local.subtract(const Duration(hours: 6));
+    final hour = shifted.hour;
+    final minute = shifted.minute;
+    final second = shifted.second;
 
+    // Ethiopian day starts at 6:00 Gregorian, i.e., Ethiopian 00:00 is Gregorian 06:00.
     final dayFraction = (hour * 3600 + minute * 60 + second) / 86400;
     final dayPercent = _clampPercent(dayFraction * 100);
 
@@ -117,9 +120,12 @@ class EthiopianDateService {
         (daysInMonth * 86400);
     final monthPercent = _clampPercent(monthFlow * 100);
 
+    // Ethiopian year progress: day-of-year / total days in year
+    final isLeap = (now.year + 1) % 4 == 0;
+    final totalYearDays = isLeap ? 366 : 365;
     final yearFlow =
         ((dayOfYear - 1) * 86400 + hour * 3600 + minute * 60 + second) /
-        (yearDays * 86400);
+        (totalYearDays * 86400);
     final yearPercent = _clampPercent(yearFlow * 100);
 
     final monthName = monthMaps[now.month] ?? '';
