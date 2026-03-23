@@ -1,4 +1,4 @@
-﻿<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission
         android:name="android.permission.INTERNET"/>
@@ -139,6 +139,54 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider"
                 android:resource="@xml/appwidget_provider_progress_gregorian"/>
+        </receiver>
+        <receiver android:name=".ProgressEthiopianWidgetDarkProvider" android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.anexon.ethio_cal.ProgressEthiopianWidgetDarkProvider.ACTION_REFRESH"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_provider_progress_ethiopian_dark"/>
+        </receiver>
+        <receiver android:name=".ProgressGregorianWidgetDarkProvider" android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.anexon.ethio_cal.ProgressGregorianWidgetDarkProvider.ACTION_REFRESH"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_provider_progress_gregorian_dark"/>
+        </receiver>
+        <receiver android:name=".ProgressEthiopianWidgetGlassyProvider" android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.anexon.ethio_cal.ProgressEthiopianWidgetGlassyProvider.ACTION_REFRESH"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_provider_progress_ethiopian_glassy"/>
+        </receiver>
+        <receiver android:name=".ProgressGregorianWidgetGlassyProvider" android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.anexon.ethio_cal.ProgressGregorianWidgetGlassyProvider.ACTION_REFRESH"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_provider_progress_gregorian_glassy"/>
+        </receiver>
+        <receiver android:name=".ProgressEthiopianWidgetGlassyDarkProvider" android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.anexon.ethio_cal.ProgressEthiopianWidgetGlassyDarkProvider.ACTION_REFRESH"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_provider_progress_ethiopian_glassy_dark"/>
+        </receiver>
+        <receiver android:name=".ProgressGregorianWidgetGlassyDarkProvider" android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.anexon.ethio_cal.ProgressGregorianWidgetGlassyDarkProvider.ACTION_REFRESH"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_provider_progress_gregorian_glassy_dark"/>
         </receiver>
         <!-- flutter_android_widgets:end -->
         <meta-data

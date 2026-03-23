@@ -4,6 +4,7 @@
     android:minHeight="180dp"
     android:updatePeriodMillis="1800000"
     android:initialLayout="@layout/widget_progress_ethiopian"
+    android:previewImage="@drawable/progress_ethiopian_light"
     android:resizeMode="horizontal|vertical"
     android:minResizeWidth="40dp"
     android:minResizeHeight="40dp"

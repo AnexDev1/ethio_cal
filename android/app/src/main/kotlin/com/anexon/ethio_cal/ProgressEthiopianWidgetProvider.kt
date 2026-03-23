@@ -18,9 +18,9 @@ class ProgressEthiopianWidgetProvider : AppWidgetProvider() {
         const val ACTION_REFRESH = "com.anexon.ethio_cal.ProgressEthiopianWidgetProvider.ACTION_REFRESH"
         private const val TOTAL_DOTS = 40        // 20 positions × 2 dots each
         private const val POSITIONS = 20          // number of colon positions
-        private const val FILLED_COLOR = "#EEEEEE"
-        private const val UNFILLED_COLOR = "#444444"
-        private const val DOT_CHAR = "•"          // bullet character for each dot
+        private const val FILLED_COLOR = "#1A1A1A"
+        private const val UNFILLED_COLOR = "#D3D3D3"
+        private const val DOT_CHAR = "\u2022"          // bullet character for each dot
     }
 
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {

@@ -5,6 +5,7 @@
     android:minHeight="100dp"
     android:updatePeriodMillis="3600000"
     android:initialLayout="@layout/widget_my_home_widget_dark_provider"
+    android:previewImage="@drawable/my_home_widget_dark"
     android:resizeMode="horizontal|vertical"
     android:minResizeWidth="40dp"
     android:minResizeHeight="40dp"

@@ -23,7 +23,9 @@ object FlutterAndroidWidgetsChannel {
         MyHomeWidgetDayGlassyProvider::class.java,
         MyHomeWidgetDayGlassyDarkProvider::class.java,
         ProgressEthiopianWidgetProvider::class.java,
-        ProgressGregorianWidgetProvider::class.java
+        ProgressEthiopianWidgetDarkProvider::class.java,
+        ProgressGregorianWidgetProvider::class.java,
+        ProgressGregorianWidgetDarkProvider::class.java
     )
 
     fun configure(activity: Activity, flutterEngine: FlutterEngine) {
