@@ -93,40 +93,31 @@ class EthiopianDateService {
   static Map<String, String> getEthiopianProgressData() {
     final now = ETDateTime.now();
     final local = DateTime.now();
-    final shifted = local.subtract(const Duration(hours: 6));
-    final hour = shifted.hour;
-    final minute = shifted.minute;
-    final second = shifted.second;
+    final hour = local.hour;
+    final minute = local.minute;
+    final second = local.second;
 
-    // Ethiopian day starts at 6:00 Gregorian, i.e., Ethiopian 00:00 is Gregorian 06:00.
-    final dayFraction = (hour * 3600 + minute * 60 + second) / 86400;
+    final secondsToday = hour * 3600 + minute * 60 + second;
+
+    final dayFraction = secondsToday / 86400;
     final dayPercent = _clampPercent(dayFraction * 100);
 
-    final dayOfYear = ((now.month - 1) * 30) + now.day;
-    final yearDays = (now.month == 13 ? (getDaysInMonth(now.year, 13)) : 365);
-    final totalWeeks = (yearDays / 7.0).ceil();
-    final weekNum = ((dayOfYear - 1) ~/ 7) + 1;
-
-    final daysInCurrentWeek = ((dayOfYear - 1) % 7);
     final weekFraction =
-        (daysInCurrentWeek * 86400 + hour * 3600 + minute * 60 + second) /
-        (7 * 86400);
-    final weekFlow = ((weekNum - 1) + weekFraction) / totalWeeks;
-    final weekPercent = _clampPercent(weekFlow * 100);
+        (((now.weekday - 1) * 86400) + secondsToday) / (7 * 86400);
+    final weekPercent = _clampPercent(weekFraction * 100);
 
     final daysInMonth = getDaysInMonth(now.year, now.month);
-    final monthFlow =
-        ((now.day - 1) * 86400 + hour * 3600 + minute * 60 + second) /
-        (daysInMonth * 86400);
-    final monthPercent = _clampPercent(monthFlow * 100);
+    final monthFraction =
+        (((now.day - 1) * 86400) + secondsToday) / (daysInMonth * 86400);
+    final monthPercent = _clampPercent(monthFraction * 100);
 
-    // Ethiopian year progress: day-of-year / total days in year
-    final isLeap = (now.year + 1) % 4 == 0;
-    final totalYearDays = isLeap ? 366 : 365;
-    final yearFlow =
-        ((dayOfYear - 1) * 86400 + hour * 3600 + minute * 60 + second) /
-        (totalYearDays * 86400);
-    final yearPercent = _clampPercent(yearFlow * 100);
+    final dayOfYear = ((now.month - 1) * 30) + now.day;
+    final weekNum = ((dayOfYear - 1) ~/ 7) + 1;
+
+    final totalDaysInYear = 12 * 30 + getDaysInMonth(now.year, 13);
+    final yearFraction =
+        (((dayOfYear - 1) * 86400) + secondsToday) / (totalDaysInYear * 86400);
+    final yearPercent = _clampPercent(yearFraction * 100);
 
     final monthName = monthMaps[now.month] ?? '';
     final weekName = _weekDayNames[now.weekday] ?? '';
@@ -152,9 +143,23 @@ class EthiopianDateService {
     final hour = now.hour;
     final minute = now.minute;
     final second = now.second;
+    final secondsToday = hour * 3600 + minute * 60 + second;
 
-    final dayFraction = (hour * 3600 + minute * 60 + second) / 86400;
+    final dayFraction = secondsToday / 86400;
     final dayPercent = _clampPercent(dayFraction * 100);
+
+    final weekFraction =
+        (((now.weekday - 1) * 86400) + secondsToday) / (7 * 86400);
+    final weekPercent = _clampPercent(weekFraction * 100);
+
+    final daysInMonth = DateTime(
+      now.year,
+      now.month + 1,
+      1,
+    ).difference(DateTime(now.year, now.month, 1)).inDays;
+    final monthFraction =
+        (((now.day - 1) * 86400) + secondsToday) / (daysInMonth * 86400);
+    final monthPercent = _clampPercent(monthFraction * 100);
 
     final dayOfYear = now.difference(DateTime(now.year, 1, 1)).inDays + 1;
     final yearDays = DateTime(
@@ -162,31 +167,10 @@ class EthiopianDateService {
       1,
       1,
     ).difference(DateTime(now.year, 1, 1)).inDays;
-    final totalWeeks = (yearDays / 7.0).ceil();
+    final yearFraction =
+        (((dayOfYear - 1) * 86400) + secondsToday) / (yearDays * 86400);
+    final yearPercent = _clampPercent(yearFraction * 100);
     final weekNum = ((dayOfYear - 1) ~/ 7) + 1;
-
-    final daysInCurrentWeek = ((dayOfYear - 1) % 7);
-    final weekFraction =
-        (daysInCurrentWeek * 86400 + hour * 3600 + minute * 60 + second) /
-        (7 * 86400);
-
-    final weekFlow = ((weekNum - 1) + weekFraction) / totalWeeks;
-    final weekPercent = _clampPercent(weekFlow * 100);
-
-    final daysInMonth = DateTime(
-      now.year,
-      now.month + 1,
-      1,
-    ).difference(DateTime(now.year, now.month, 1)).inDays;
-    final monthFlow =
-        ((now.day - 1) * 86400 + hour * 3600 + minute * 60 + second) /
-        (daysInMonth * 86400);
-    final monthPercent = _clampPercent(monthFlow * 100);
-
-    final yearFlow =
-        ((dayOfYear - 1) * 86400 + hour * 3600 + minute * 60 + second) /
-        (yearDays * 86400);
-    final yearPercent = _clampPercent(yearFlow * 100);
 
     const weekdayNames = {
       1: 'MONDAY',
