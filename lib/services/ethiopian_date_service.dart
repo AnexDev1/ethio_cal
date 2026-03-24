@@ -120,6 +120,7 @@ class EthiopianDateService {
     final yearPercent = _clampPercent(yearFraction * 100);
 
     final monthName = monthMaps[now.month] ?? '';
+    final monthLabel = '$monthName ${now.day}'.toUpperCase();
     final weekName = _weekDayNames[now.weekday] ?? '';
 
     return {
@@ -127,7 +128,7 @@ class EthiopianDateService {
       'ethio_day_percent': '$dayPercent%',
       'ethio_week_label': 'ሳምንት $weekNum',
       'ethio_week_percent': '$weekPercent%',
-      'ethio_month_label': monthName.toUpperCase(),
+      'ethio_month_label': monthLabel,
       'ethio_month_percent': '$monthPercent%',
       'ethio_year_label': now.year.toString(),
       'ethio_year_percent': '$yearPercent%',
@@ -196,13 +197,15 @@ class EthiopianDateService {
       12: 'DECEMBER',
     };
     final weekName = weekdayNames[now.weekday] ?? '';
+    final monthLabel = '${monthNames[now.month] ?? ''} ${now.day}'
+        .toUpperCase();
 
     return {
       'greg_day_label': weekName,
       'greg_day_percent': '$dayPercent%',
       'greg_week_label': 'WEEK $weekNum',
       'greg_week_percent': '$weekPercent%',
-      'greg_month_label': monthNames[now.month] ?? '',
+      'greg_month_label': monthLabel,
       'greg_month_percent': '$monthPercent%',
       'greg_year_label': now.year.toString(),
       'greg_year_percent': '$yearPercent%',
